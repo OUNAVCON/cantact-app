@@ -15,7 +15,7 @@ import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.windows.TopComponent;
 import org.openide.util.NbBundle.Messages;
-import org.openide.util.Utilities;
+import org.openide.util.BaseUtilities;
 
 /**
  * Top component which displays something.
@@ -154,8 +154,8 @@ public final class ScriptTopComponent extends TopComponent {
         if(returnVal == JFileChooser.APPROVE_OPTION) {
            scriptNameLabel.setText(chooser.getSelectedFile().getName());
             try {
-                scriptEditorPane.setPage(Utilities.toURI(chooser.getSelectedFile()).toURL());
-            } catch (IOException e) {
+                scriptEditorPane.setPage(BaseUtilities.toURI(chooser.getSelectedFile()).toURL());
+            } catch (Exception e) {
                 
             }
         }
